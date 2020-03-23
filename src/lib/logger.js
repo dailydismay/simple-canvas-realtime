@@ -6,7 +6,8 @@ log4js.configure({
     console: { type: 'console' },
   },
   categories: {
-    default: { appenders: ['file', 'console'], level: 'debug' },
+    default: { appenders: ['console'], level: 'debug' },
+    error: { appenders: ['file'], level: 'error' },
   },
 });
 
