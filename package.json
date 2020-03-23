@@ -4,22 +4,34 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon -L --exec babel-node src/",
-    "build": "babel src --out-dir dist",
-    "start": "node dist/"
+    "dev": "ts-node-dev --no-notify --clear --ignore-watch dist --ignore-watch node_modules src/",
+    "build": "tsc",
+    "start": "env-cmd -f .env.local node dist/",
+    "lint:dev": "esw -w --clear --color --quiet --ext .ts src/",
+    "lint": "eslint --ext .ts src/"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.2",
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.6",
     "@babel/node": "^7.8.4",
     "@babel/preset-env": "^7.8.6",
+    "@types/joi": "^14.3.4",
+    "@types/node": "^13.9.3",
+    "@types/uuid": "^7.0.2",
+    "@types/ws": "^7.2.3",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
     "dotenv": "^8.2.0",
-    "prettier": "^1.19.1"
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-watch": "^6.0.1",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.8.3"
   },
   "dependencies": {
     "joi": "^14.3.1",
